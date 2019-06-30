@@ -9,8 +9,11 @@ class MyApp extends StatefulWidget {
     return _MyApp();
   }
 }
+
 class _MyApp extends State {
-@override
+  List<String> _products = ['Food tester'];
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -27,16 +30,16 @@ class _MyApp extends State {
                 ),
               ),
               Column(
-                children: <Widget>[
-                  Card(
-                    child: Column(
-                      children: <Widget>[
-                        Image.asset('assets/food.jpg'),
-                        Text('Food Paradise')
-                      ],
-                    ),
-                  ),
-                ],
+                children: _products
+                    .map((element) => Card(
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset('assets/food.jpg'),
+                              Text(element)
+                            ],
+                          ),
+                        ))
+                    .toList(),
               )
             ],
           )),
